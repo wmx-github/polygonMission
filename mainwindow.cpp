@@ -7,20 +7,36 @@
 #include <QList>
 #include <QFile>
 
+#include <QCoreApplication>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     polygonField * workField = new polygonField(this);
-    workField->setCorner(QGeoCoordinate(22.76080511, 114.27268677000001));
-    workField->setCorner(QGeoCoordinate(22.760423759999998, 114.27272872));
-    workField->setCorner(QGeoCoordinate(22.760492840000001, 114.27306436000001));
-    workField->setCorner(QGeoCoordinate(22.760642069999999, 114.27319323));
-    workField->setCorner(QGeoCoordinate(22.760799590000001, 114.27332509));
-    workField->setCorner(QGeoCoordinate(22.760901830000002, 114.27327414));
+
+    //设置作业区域顶点
+    QGeoCoordinate a(22.76080511, 114.27268677000001);
+    QGeoCoordinate b(22.760423759999998, 114.27272872);
+    QGeoCoordinate c(22.760492840000001, 114.27306436000001);
+    QGeoCoordinate d(22.760642069999999, 114.27319323);
+    QGeoCoordinate e(22.760799590000001, 114.27332509);
+    QGeoCoordinate f(22.760901830000002, 114.27327414);
+
+    workField->setCorner(a);
+    workField->setCorner(b);
+    workField->setCorner(c);
+    workField->setCorner(d);
+    workField->setCorner(e);
+    workField->setCorner(f);
+
+    //根据顶点设置边
     workField->setSideLines();
 
     calculateGeometry *calculate = new calculateGeometry(this);
+
+    //设置多边形某个顶点作为 参考坐标系 原点
     calculate->setOriginPoint(workField->corners().at(0));
+
     //多边形面积
     qDebug()<<calculate->calculatePolygonFieldArea(workField->cornerXYList());
 
@@ -45,18 +61,25 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     qDebug() << endl;
+
     //设置作业区
     calculate->setPolygonField(*workField);
+
     //多边形 参考边（被通过多边形各顶点的垂线垂直）
     wayPointLine *baseSideLine;
+
     //相对参考边的 最远点
     QPair<double, double> farthestPoint;
+
     //最远距离
     double farthestDistance;
+
     //垂足
     QPair<double, double> vertialPoint;
+
     //喷幅 暂时设置为15米
     double W = 4.0;
+
     //N 等分
     int N;
 
@@ -110,7 +133,7 @@ MainWindow::MainWindow(QWidget *parent)
 //        workField->cornerXYList().at(i);
 //    }
 
-     int countOfPonts = 0;
+    int countOfPonts = 0;
     for(int i = 1; i <= N; i++){
         //构造航线(斜率为baseSideLine的斜率、过点PointS_F_V[i])
         wayPointLine *missionLine = new wayPointLine(baseSideLine->slope(), points_F_V[i]);
@@ -222,7 +245,8 @@ MainWindow::MainWindow(QWidget *parent)
     missionPointsGeo[countOfPonts + 1] = missionPointsGeo[countOfPonts];
 ///////////////////////////////////////////
 
-    QFile itemFile("C:polygonMissionFile.mission");
+    QString filePath = QCoreApplication::applicationDirPath() +"/polygonMissionFile.mission" ;
+    QFile itemFile(filePath);
     if(!itemFile.open(QIODevice::WriteOnly)){
         qDebug()<<"crop_dustingMission.cpp 114 fail open itemFile";
         return;

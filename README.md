@@ -12,6 +12,4 @@ ployMission for UAV
 3 运行算法后 app目录下 生成 polygonMissionFile.mission 文件可以用 qgroundcontrol 加载
 
 # 支持一下，打赏：
-https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png
-
-![在这里插入图片描述](https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1dNWDg0MzIzMDMwNFdNWA==,size_16,color_FFFFFF,t_70)
+![打赏](https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png=500x600)

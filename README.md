@@ -14,4 +14,5 @@ ployMission for UAV
 # 支持一下，打赏：
 https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png
 
-![打赏](https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png size=500x600)
+![打赏](https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png)
+<img src="https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png" width = "５00" height = "６00" div align=right />

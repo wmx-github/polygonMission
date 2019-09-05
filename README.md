@@ -11,5 +11,6 @@ ployMission for UAV
 2 在 MainWindow 构造函数 里面 可以设置 自定义作业区域 多边形的顶点
 3 运行算法后 app目录下 生成 polygonMissionFile.mission 文件可以用 qgroundcontrol 加载
 
-＃　支持一下，打赏
+# 支持一下，打赏：
+https://raw.githubusercontent.com/wmx-github/polygonMission/master/%E6%89%93%E8%B5%8F.png
 
